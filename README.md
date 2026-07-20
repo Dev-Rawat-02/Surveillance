@@ -10,6 +10,7 @@ A real-time computer vision surveillance app that uses a YOLOv8 model to detect 
 - Snapshot saving when a threat is detected
 - Audio alarm playback on detection
 - Local SQLite logging of alerts
+- Event dashboard for browsing recent alerts and opening snapshots
 
 ## Tech Stack
 
@@ -60,7 +61,29 @@ pip install -r requirements.txt
 python app.py
 ```
 
-Press `q` to close the video window.
+This opens the simple launcher UI. Use **Start Live Surveillance** to open the camera window.
+
+Press `q` in the video window to close the live feed.
+
+## UI Entry Points
+
+- `python app.py` opens the launcher UI.
+- `python app.py --run` starts the live surveillance window directly.
+- `python app.py --dashboard` opens the event dashboard directly.
+
+## Open the Event Dashboard
+
+You can view the stored alerts in a standalone dashboard:
+
+```bash
+python dashboard.py
+```
+
+If you prefer a single entry point, run:
+
+```bash
+python app.py --dashboard
+```
 
 ## What Happens When a Threat Is Detected
 
@@ -74,3 +97,4 @@ Press `q` to close the video window.
 - The app expects a working webcam or another camera source configured in `core/camera.py`.
 - If you change the camera source, update the `Camera` class in `core/camera.py`.
 - `database/surveillance.db` is created automatically the first time the app runs.
+- Double-click an alert row in the dashboard to open its saved snapshot.
