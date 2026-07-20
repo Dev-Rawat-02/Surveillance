@@ -1,4 +1,4 @@
-# Drone Surveillance System
+# Threat Surveillance System
 
 A real-time computer vision surveillance app that uses a YOLOv8 model to detect threats from a live camera feed, draw detections on screen, trigger an audio alert, and save snapshots plus alert history to SQLite.
 
